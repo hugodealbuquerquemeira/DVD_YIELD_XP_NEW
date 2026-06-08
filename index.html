@@ -18,20 +18,15 @@
     --muted2: #9CA3AF;
     --green: #22C55E;
     --green-dim: rgba(34,197,94,0.12);
-    --green-dim2: rgba(34,197,94,0.06);
     --amber: #F59E0B;
     --amber-dim: rgba(245,158,11,0.12);
     --red: #EF4444;
     --accent: #3B82F6;
-    --accent-dim: rgba(59,130,246,0.1);
     --mono: 'DM Mono', monospace;
     --sans: 'Syne', sans-serif;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
   html { background: var(--bg); }
-
   body {
     font-family: var(--sans);
     background: var(--bg);
@@ -40,8 +35,6 @@
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     overflow-x: hidden;
   }
-
-  /* grid bg texture */
   body::before {
     content: '';
     position: fixed;
@@ -53,21 +46,16 @@
     pointer-events: none;
     z-index: 0;
   }
-
   .wrap {
     position: relative;
     z-index: 1;
     max-width: 680px;
     margin: 0 auto;
-    padding: 20px 16px 40px;
+    padding: 20px 16px 48px;
   }
 
-  /* ── Header ── */
-  .header {
-    margin-bottom: 28px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
-  }
+  /* header */
+  .header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
   .header-eyebrow {
     font-family: var(--mono);
     font-size: 10px;
@@ -87,76 +75,12 @@
     box-shadow: 0 0 8px var(--green);
     animation: pulse 2s infinite;
   }
-  @keyframes pulse {
-    0%,100% { opacity:1; }
-    50% { opacity:0.4; }
-  }
-  .header-title {
-    font-size: clamp(22px, 6vw, 30px);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    color: var(--text);
-  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .header-title { font-size: clamp(22px,6vw,30px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
   .header-title span { color: var(--green); }
-  .header-sub {
-    margin-top: 8px;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted2);
-  }
+  .header-sub { margin-top: 8px; font-family: var(--mono); font-size: 12px; color: var(--muted2); }
 
-  /* ── Cards base ── */
-  .card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 18px 20px;
-    transition: border-color 0.2s;
-  }
-
-  /* ── Metric grid ── */
-  .metrics-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-  @media (min-width: 480px) {
-    .metrics-grid { grid-template-columns: repeat(4, 1fr); }
-  }
-
-  .metric-card {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px 16px;
-  }
-  .metric-label {
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-  .metric-value {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-  .metric-value.green { color: var(--green); }
-  .metric-value.amber { color: var(--amber); }
-  .metric-sub {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--muted);
-    margin-top: 5px;
-  }
-
-  /* ── Section label ── */
+  /* section label */
   .section-label {
     font-family: var(--mono);
     font-size: 9px;
@@ -164,17 +88,20 @@
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 10px;
-    margin-top: 22px;
+    margin-top: 24px;
   }
 
-  /* ── Scenario cards ── */
-  .scenario-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 16px;
-  }
+  /* metric grid */
+  .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 4px; }
+  @media (min-width: 480px) { .metrics-grid { grid-template-columns: repeat(4,1fr); } }
+  .metric-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+  .metric-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .metric-value { font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; line-height: 1; }
+  .metric-value.amber { color: var(--amber); }
+  .metric-sub { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 5px; }
 
+  /* scenario cards */
+  .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .scenario-card {
     background: var(--bg3);
     border: 1px solid var(--border);
@@ -182,19 +109,15 @@
     padding: 18px 18px 16px;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.2s;
   }
   .scenario-card::after {
     content: '';
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 2px;
-    background: var(--border);
-    transition: background 0.3s;
   }
   .scenario-card.is-19::after { background: var(--amber); }
   .scenario-card.is-16::after { background: var(--green); }
-
   .scenario-badge {
     display: inline-block;
     font-family: var(--mono);
@@ -207,202 +130,88 @@
   }
   .scenario-badge.amber { background: var(--amber-dim); color: var(--amber); }
   .scenario-badge.green { background: var(--green-dim); color: var(--green); }
-
-  .scenario-yield {
-    font-size: clamp(28px, 8vw, 38px);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
+  .scenario-yield { font-size: clamp(28px,8vw,38px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; }
   .scenario-yield.amber { color: var(--amber); }
   .scenario-yield.green { color: var(--green); }
   .scenario-desc { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-bottom: 14px; }
-
-  .breakdown {
-    border-top: 1px solid var(--border);
-    padding-top: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
-  .breakdown-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--muted);
-  }
-  .breakdown-row .val {
-    color: var(--muted2);
-    font-size: 11px;
-  }
-  .breakdown-row.total {
-    border-top: 1px solid var(--border);
-    padding-top: 7px;
-    margin-top: 2px;
-  }
+  .breakdown { border-top: 1px solid var(--border); padding-top: 12px; display: flex; flex-direction: column; gap: 7px; }
+  .breakdown-row { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--mono); font-size: 10px; color: var(--muted); }
+  .breakdown-row .val { color: var(--muted2); font-size: 11px; }
+  .breakdown-row.total { border-top: 1px solid var(--border); padding-top: 7px; margin-top: 2px; }
   .breakdown-row.total .val { color: var(--text); font-weight: 500; }
+  .breakdown-row.announced .val { color: var(--amber); }
+  .breakdown-row.remaining .val { color: var(--green); }
 
-  /* ── Simulator ── */
-  .sim-card {
-    background: var(--bg2);
-    border: 1px solid var(--border2);
-    border-radius: 16px;
-    padding: 22px 20px;
-    margin-bottom: 16px;
-  }
-
-  .sim-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-  }
-  .sim-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-  }
-  .sim-yield-live {
-    text-align: right;
-  }
-  .sim-yield-num {
-    font-size: clamp(32px, 10vw, 46px);
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1;
-    color: var(--green);
-    transition: color 0.3s;
-  }
+  /* simulator */
+  .sim-card { background: var(--bg2); border: 1px solid var(--border2); border-radius: 16px; padding: 22px 20px; margin-bottom: 16px; }
+  .sim-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+  .sim-title { font-size: 14px; font-weight: 600; color: var(--text); }
+  .sim-yield-num { font-size: clamp(32px,10vw,46px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--green); transition: color 0.3s; }
   .sim-yield-label { font-family: var(--mono); font-size: 10px; color: var(--muted); text-align: right; margin-top: 2px; }
 
   .slider-block { margin-bottom: 22px; }
-  .slider-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 8px;
-  }
+  .slider-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
   .slider-name { font-family: var(--mono); font-size: 11px; color: var(--muted2); }
-  .slider-readout {
-    font-family: var(--mono);
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    min-width: 52px;
-    text-align: right;
-  }
-
+  .slider-readout { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--text); min-width: 60px; text-align: right; }
   input[type=range] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 3px;
-    background: var(--bg4);
-    border-radius: 2px;
-    outline: none;
-    cursor: pointer;
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 3px;
+    background: var(--bg4); border-radius: 2px; outline: none; cursor: pointer;
   }
   input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--text);
-    border: 2px solid var(--bg);
-    box-shadow: 0 0 0 1px var(--border2);
-    cursor: pointer;
+    -webkit-appearance: none; appearance: none;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--text); border: 2px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--border2); cursor: pointer;
     transition: background 0.2s, transform 0.1s;
   }
-  input[type=range]:active::-webkit-slider-thumb {
-    transform: scale(1.2);
-    background: var(--green);
-  }
-  input[type=range]::-webkit-slider-runnable-track {
-    border-radius: 2px;
-    height: 3px;
-  }
+  input[type=range]:active::-webkit-slider-thumb { transform: scale(1.2); background: var(--green); }
+  .tick-row { display: flex; justify-content: space-between; margin-top: 5px; font-family: var(--mono); font-size: 9px; color: var(--muted); }
 
-  .tick-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5px;
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--muted);
-  }
-
-  /* sim output cards */
-  .sim-output {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-    margin-top: 20px;
-  }
-  .sim-metric {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px 14px;
-    text-align: center;
-  }
-  .sim-metric-label { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 6px; }
-  .sim-metric-val { font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--text); }
-
-  /* gauge bar */
-  .gauge-wrap { margin-top: 18px; }
+  /* gauge */
+  .gauge-wrap { margin-top: 18px; margin-bottom: 20px; }
   .gauge-label { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; display: flex; justify-content: space-between; }
   .gauge-track { background: var(--bg4); border-radius: 4px; height: 6px; overflow: hidden; }
   .gauge-fill { height: 100%; border-radius: 4px; transition: width 0.4s ease, background 0.4s ease; }
 
-  /* ── Note ── */
-  .note {
+  /* sim output */
+  .sim-output { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .sim-metric { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .sim-metric-label { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 6px; }
+  .sim-metric-val { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--text); }
+
+  /* formula box */
+  .formula-box {
     background: var(--bg3);
     border: 1px solid var(--border);
     border-left: 2px solid var(--accent);
     border-radius: 10px;
-    padding: 14px 16px;
-    margin-top: 22px;
+    padding: 16px 18px;
+    margin-top: 24px;
   }
-  .note-title { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
-  .note-body { font-family: var(--mono); font-size: 10px; line-height: 1.7; color: var(--muted2); }
-  .note-body strong { color: var(--muted2); font-weight: 500; }
+  .formula-title { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 12px; }
+  .formula-line { font-family: var(--mono); font-size: 11px; color: var(--muted2); line-height: 2; }
+  .formula-line span { color: var(--text); }
+  .formula-divider { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
 
-  /* ── Footer ── */
-  .footer {
-    margin-top: 30px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: space-between;
-  }
+  /* footer */
+  .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 9px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; display: flex; justify-content: space-between; }
 
-  /* animations */
-  @keyframes fadein { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
-  .card, .metric-card, .scenario-card, .sim-card { animation: fadein 0.4s ease both; }
-  .scenario-card:nth-child(2) { animation-delay: 0.08s; }
-  .sim-card { animation-delay: 0.15s; }
+  @keyframes fadein { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+  .metric-card,.scenario-card,.sim-card,.formula-box { animation: fadein 0.4s ease both; }
+  .scenario-card:nth-child(2) { animation-delay: 0.07s; }
+  .sim-card { animation-delay: 0.12s; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <!-- Header -->
   <div class="header">
-    <div class="header-eyebrow">XP Inc · XPBR31 · Análise de capital</div>
-    <div class="header-title">Capital <span>Excedente</span><br>& Retorno</div>
+    <div class="header-eyebrow">XP Inc · XPBR31 · Limite de distribuição 2026</div>
+    <div class="header-title">Quanto a XP pode<br><span>devolver</span> em 2026?</div>
     <div class="header-sub">Base: 1T26 · Guidance Basileia 16–19% · jun/26</div>
   </div>
 
-  <!-- Base metrics -->
   <div class="section-label">Dados base 1T26</div>
   <div class="metrics-grid">
     <div class="metric-card">
@@ -411,7 +220,7 @@
       <div class="metric-sub">Guidance: 16–19%</div>
     </div>
     <div class="metric-card">
-      <div class="metric-label">RWA</div>
+      <div class="metric-label">RWA atual</div>
       <div class="metric-value">R$122,2bi</div>
       <div class="metric-sub">+20% a/a</div>
     </div>
@@ -427,52 +236,56 @@
     </div>
   </div>
 
-  <!-- Scenario cards -->
-  <div class="section-label">Cenários do guidance</div>
+  <div class="section-label">Cenários do guidance (RWA +20% até fim de 2026)</div>
   <div class="scenario-grid">
 
     <div class="scenario-card is-19">
       <div class="scenario-badge amber">Topo · 19%</div>
-      <div class="scenario-yield amber" id="y19">7,5%</div>
+      <div class="scenario-yield amber" id="y19">—</div>
       <div class="scenario-desc">yield total</div>
       <div class="breakdown">
-        <div class="breakdown-row"><span>Div. regular</span><span class="val">R$2,0bi</span></div>
-        <div class="breakdown-row"><span>Excedente</span><span class="val" id="exc19">R$2,1bi</span></div>
-        <div class="breakdown-row total"><span>Total</span><span class="val" id="tot19">R$4,1bi</span></div>
+        <div class="breakdown-row"><span>Capital hoje</span><span class="val">R$25,3bi</span></div>
+        <div class="breakdown-row"><span>+ Lucro 2026e</span><span class="val">R$5,3bi</span></div>
+        <div class="breakdown-row"><span>− Capital exigido</span><span class="val" id="req19">—</span></div>
+        <div class="breakdown-row total"><span>Total distribuível</span><span class="val" id="tot19">—</span></div>
+        <div class="breakdown-row announced"><span>Já anunciado</span><span class="val">R$1,5bi</span></div>
+        <div class="breakdown-row remaining"><span>Ainda a anunciar</span><span class="val" id="rem19">—</span></div>
       </div>
     </div>
 
     <div class="scenario-card is-16">
       <div class="scenario-badge green">Piso · 16%</div>
-      <div class="scenario-yield green" id="y16">14,2%</div>
+      <div class="scenario-yield green" id="y16">—</div>
       <div class="scenario-desc">yield total</div>
       <div class="breakdown">
-        <div class="breakdown-row"><span>Div. regular</span><span class="val">R$2,0bi</span></div>
-        <div class="breakdown-row"><span>Excedente</span><span class="val" id="exc16">R$5,7bi</span></div>
-        <div class="breakdown-row total"><span>Total</span><span class="val" id="tot16">R$7,7bi</span></div>
+        <div class="breakdown-row"><span>Capital hoje</span><span class="val">R$25,3bi</span></div>
+        <div class="breakdown-row"><span>+ Lucro 2026e</span><span class="val">R$5,3bi</span></div>
+        <div class="breakdown-row"><span>− Capital exigido</span><span class="val" id="req16">—</span></div>
+        <div class="breakdown-row total"><span>Total distribuível</span><span class="val" id="tot16">—</span></div>
+        <div class="breakdown-row announced"><span>Já anunciado</span><span class="val">R$1,5bi</span></div>
+        <div class="breakdown-row remaining"><span>Ainda a anunciar</span><span class="val" id="rem16">—</span></div>
       </div>
     </div>
 
   </div>
 
-  <!-- Simulator -->
   <div class="section-label">Simulador interativo</div>
   <div class="sim-card">
 
     <div class="sim-header">
       <div>
-        <div class="sim-title">Basileia alvo</div>
-        <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:4px;">ajuste os parâmetros</div>
+        <div class="sim-title">Parâmetros customizados</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:4px;">ajuste os três sliders</div>
       </div>
-      <div class="sim-yield-live">
-        <div class="sim-yield-num" id="live-yield">7,5%</div>
+      <div>
+        <div class="sim-yield-num" id="live-yield">—</div>
         <div class="sim-yield-label">yield total</div>
       </div>
     </div>
 
     <div class="slider-block">
       <div class="slider-top">
-        <span class="slider-name">Basileia alvo</span>
+        <span class="slider-name">Basileia alvo (fim de 2026)</span>
         <span class="slider-readout" id="read-bas">19,0%</span>
       </div>
       <input type="range" id="sl-bas" min="11" max="21" step="0.5" value="19">
@@ -481,56 +294,61 @@
 
     <div class="slider-block">
       <div class="slider-top">
-        <span class="slider-name">Crescimento do RWA</span>
-        <span class="slider-readout" id="read-rwa">0%</span>
+        <span class="slider-name">Crescimento do RWA até fim 2026</span>
+        <span class="slider-readout" id="read-rwa">20%</span>
       </div>
-      <input type="range" id="sl-rwa" min="0" max="30" step="1" value="0">
-      <div class="tick-row"><span>0%</span><span>10%</span><span>20%</span><span>30%</span></div>
+      <input type="range" id="sl-rwa" min="0" max="35" step="1" value="20">
+      <div class="tick-row"><span>0%</span><span>10%</span><span>20%</span><span>35%</span></div>
     </div>
 
-    <!-- gauge -->
+    <div class="slider-block">
+      <div class="slider-top">
+        <span class="slider-name">Lucro líquido 2026e</span>
+        <span class="slider-readout" id="read-luc">R$5,3bi</span>
+      </div>
+      <input type="range" id="sl-luc" min="4" max="7" step="0.1" value="5.3">
+      <div class="tick-row"><span>R$4bi</span><span>R$5bi</span><span>R$6bi</span><span>R$7bi</span></div>
+    </div>
+
     <div class="gauge-wrap">
       <div class="gauge-label">
-        <span>Piso mínimo BACEN (11%)</span>
+        <span>Mín. BACEN (11%)</span>
         <span id="gauge-lbl">Alvo: 19,0%</span>
         <span>Atual (20,7%)</span>
       </div>
       <div class="gauge-track">
-        <div class="gauge-fill" id="gauge-fill" style="width:78%;background:var(--amber);"></div>
+        <div class="gauge-fill" id="gauge-fill"></div>
       </div>
     </div>
 
     <div class="sim-output">
       <div class="sim-metric">
-        <div class="sim-metric-label">Capital excedente</div>
-        <div class="sim-metric-val" id="sim-exc">R$2,1bi</div>
+        <div class="sim-metric-label">Capital exigido</div>
+        <div class="sim-metric-val" id="sim-req">—</div>
       </div>
       <div class="sim-metric">
-        <div class="sim-metric-label">Total a devolver</div>
-        <div class="sim-metric-val" id="sim-tot">R$4,1bi</div>
+        <div class="sim-metric-label">Total distribuível</div>
+        <div class="sim-metric-val" id="sim-tot">—</div>
       </div>
       <div class="sim-metric">
-        <div class="sim-metric-label">Div + Buyback</div>
-        <div class="sim-metric-val" id="sim-yield2" style="color:var(--green);">7,5%</div>
+        <div class="sim-metric-label">Ainda a anunciar</div>
+        <div class="sim-metric-val" id="sim-rem" style="color:var(--green);">—</div>
       </div>
     </div>
 
   </div>
 
-  <!-- Note -->
-  <div class="note">
-    <div class="note-title">Memória do cálculo</div>
-    <div class="note-body">
-      <strong>Capital atual</strong> = 20,7% × R$122,2bi = R$25,3bi<br>
-      <strong>Excedente</strong> = (20,7% − alvo%) × RWA × (1 + crescimento)<br>
-      <strong>Dividendo regular</strong> = R$500mi/tri × 4 = R$2,0bi/ano<br>
-      <strong>Yield</strong> = (excedente + dividendo) / R$54,3bi market cap<br>
-      <strong>Inclui</strong> dividendos + recompras (retorno total ao acionista).<br>
-      Gestão projeta yield acima de 10% somando iniciativas de 2026.
-    </div>
+  <!-- formula -->
+  <div class="formula-box">
+    <div class="formula-title">Memória do cálculo</div>
+    <div class="formula-line">Total distribuível = <span>Capital atual + Lucro 2026e − Capital exigido fim 2026</span></div>
+    <div class="formula-line">Capital exigido = <span>Basileia alvo × RWA atual × (1 + crescimento RWA)</span></div>
+    <hr class="formula-divider">
+    <div class="formula-line">Já anunciado: <span>R$500M div (jun/26) + R$1bi buyback = R$1,5bi</span></div>
+    <div class="formula-line">Yield = <span>Total distribuível / Market cap (R$54,3bi)</span></div>
+    <div class="formula-line">Inclui <span>dividendos + recompras</span> — retorno total ao acionista</div>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
     <span>XP Capital Dashboard</span>
     <span>Jun 2026 · 1T26</span>
@@ -539,65 +357,73 @@
 </div>
 
 <script>
-const RWA = 122.2;
-const BAS_ATUAL = 20.7;
-const MKTCAP = 54.3;
-const DIV = 2.0;
+const CAP_ATUAL = 25.3;
+const RWA_ATUAL = 122.2;
+const MKTCAP   = 54.3;
+const JA_ANUNCIADO = 1.5;
 
-function calc(basAlvo, rwaGrow) {
-  const rwa = RWA * (1 + rwaGrow / 100);
-  const prAtual = BAS_ATUAL / 100 * RWA;
-  const prAlvo  = basAlvo  / 100 * rwa;
-  const exc = Math.max(prAtual - prAlvo, 0);
-  const tot = exc + DIV;
-  const yld = tot / MKTCAP * 100;
-  return { exc, tot, yld };
+function calc(basAlvo, rwaGrow, lucro) {
+  const rwaFim  = RWA_ATUAL * (1 + rwaGrow / 100);
+  const capReq  = basAlvo / 100 * rwaFim;
+  const total   = CAP_ATUAL + lucro - capReq;
+  const restante = Math.max(total - JA_ANUNCIADO, 0);
+  const yld     = Math.max(total, 0) / MKTCAP * 100;
+  return { capReq, total, restante, yld };
 }
 
-function fmtBi(n) { return 'R$' + n.toFixed(1) + 'bi'; }
-function fmtPct(n) { return n.toFixed(1) + '%'; }
+function bi(n)  { return 'R$' + n.toFixed(1) + 'bi'; }
+function pct(n) { return n.toFixed(1) + '%'; }
 
-// static scenario cards (RWA growth = 0)
-const r19 = calc(19, 0);
-const r16 = calc(16, 0);
-document.getElementById('y19').textContent   = fmtPct(r19.yld);
-document.getElementById('exc19').textContent = fmtBi(r19.exc);
-document.getElementById('tot19').textContent = fmtBi(r19.tot);
-document.getElementById('y16').textContent   = fmtPct(r16.yld);
-document.getElementById('exc16').textContent = fmtBi(r16.exc);
-document.getElementById('tot16').textContent = fmtBi(r16.tot);
+function setColor(el, val) {
+  el.style.color = val >= 10 ? 'var(--green)' : val >= 5 ? 'var(--amber)' : 'var(--muted2)';
+}
 
-// slider logic
+// static scenario cards (RWA +20%, lucro R$5.3bi)
+function fillScenario(suffix, bas) {
+  const r = calc(bas, 20, 5.3);
+  document.getElementById('y'   + suffix).textContent = pct(r.yld);
+  document.getElementById('req' + suffix).textContent = bi(r.capReq);
+  document.getElementById('tot' + suffix).textContent = bi(r.total);
+  document.getElementById('rem' + suffix).textContent = bi(r.restante);
+}
+fillScenario('19', 19);
+fillScenario('16', 16);
+
+// sliders
 const slBas = document.getElementById('sl-bas');
 const slRwa = document.getElementById('sl-rwa');
+const slLuc = document.getElementById('sl-luc');
 
 function update() {
   const bas = parseFloat(slBas.value);
   const rwa = parseFloat(slRwa.value);
-  const r = calc(bas, rwa);
+  const luc = parseFloat(slLuc.value);
+  const r   = calc(bas, rwa, luc);
 
-  document.getElementById('read-bas').textContent = fmtPct(bas);
+  document.getElementById('read-bas').textContent = pct(bas);
   document.getElementById('read-rwa').textContent = rwa + '%';
-  document.getElementById('gauge-lbl').textContent = 'Alvo: ' + fmtPct(bas);
+  document.getElementById('read-luc').textContent = bi(luc);
+  document.getElementById('gauge-lbl').textContent = 'Alvo: ' + pct(bas);
 
-  // gauge: map 11% → 0%, 20.7% → 100%
   const gaugeW = Math.min(100, Math.max(0, (bas - 11) / (20.7 - 11) * 100));
   const fill = document.getElementById('gauge-fill');
   fill.style.width = gaugeW.toFixed(1) + '%';
   fill.style.background = bas <= 16 ? 'var(--green)' : bas <= 19 ? 'var(--amber)' : 'var(--red)';
 
-  const yieldEl = document.getElementById('live-yield');
-  yieldEl.textContent = fmtPct(r.yld);
-  yieldEl.style.color = r.yld >= 10 ? 'var(--green)' : r.yld >= 6 ? 'var(--amber)' : 'var(--muted2)';
+  const liveEl = document.getElementById('live-yield');
+  liveEl.textContent = pct(r.yld);
+  setColor(liveEl, r.yld);
 
-  document.getElementById('sim-exc').textContent   = fmtBi(r.exc);
-  document.getElementById('sim-tot').textContent   = fmtBi(r.tot);
-  document.getElementById('sim-yield2').textContent = fmtPct(r.yld);
-  document.getElementById('sim-yield2').style.color = r.yld >= 10 ? 'var(--green)' : r.yld >= 6 ? 'var(--amber)' : 'var(--muted2)';
+  document.getElementById('sim-req').textContent = bi(r.capReq);
+  document.getElementById('sim-tot').textContent = bi(r.total);
+  const remEl = document.getElementById('sim-rem');
+  remEl.textContent = bi(r.restante);
+  setColor(remEl, r.restante / MKTCAP * 100);
 }
 
 slBas.addEventListener('input', update);
 slRwa.addEventListener('input', update);
+slLuc.addEventListener('input', update);
 update();
 </script>
 </body>
