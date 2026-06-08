@@ -37,8 +37,7 @@
   }
   body::before {
     content: '';
-    position: fixed;
-    inset: 0;
+    position: fixed; inset: 0;
     background-image:
       linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
@@ -46,33 +45,17 @@
     pointer-events: none;
     z-index: 0;
   }
-  .wrap {
-    position: relative;
-    z-index: 1;
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 20px 16px 48px;
-  }
+  .wrap { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 20px 16px 48px; }
 
-  /* header */
   .header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
   .header-eyebrow {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em;
+    color: var(--muted); text-transform: uppercase; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 8px;
   }
   .header-eyebrow::before {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--green);
-    box-shadow: 0 0 8px var(--green);
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green); box-shadow: 0 0 8px var(--green);
     animation: pulse 2s infinite;
   }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
@@ -80,18 +63,11 @@
   .header-title span { color: var(--green); }
   .header-sub { margin-top: 8px; font-family: var(--mono); font-size: 12px; color: var(--muted2); }
 
-  /* section label */
   .section-label {
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 10px;
-    margin-top: 24px;
+    font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 10px; margin-top: 24px;
   }
 
-  /* metric grid */
   .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 4px; }
   @media (min-width: 480px) { .metrics-grid { grid-template-columns: repeat(4,1fr); } }
   .metric-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
@@ -100,33 +76,21 @@
   .metric-value.amber { color: var(--amber); }
   .metric-sub { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 5px; }
 
-  /* scenario cards */
   .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .scenario-card {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 18px 18px 16px;
-    position: relative;
-    overflow: hidden;
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 14px; padding: 18px 18px 16px;
+    position: relative; overflow: hidden;
   }
   .scenario-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 2px;
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
   }
   .scenario-card.is-19::after { background: var(--amber); }
   .scenario-card.is-16::after { background: var(--green); }
   .scenario-badge {
-    display: inline-block;
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 20px;
-    margin-bottom: 12px;
+    display: inline-block; font-family: var(--mono); font-size: 9px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 20px; margin-bottom: 12px;
   }
   .scenario-badge.amber { background: var(--amber-dim); color: var(--amber); }
   .scenario-badge.green { background: var(--green-dim); color: var(--green); }
@@ -134,29 +98,27 @@
   .scenario-yield.amber { color: var(--amber); }
   .scenario-yield.green { color: var(--green); }
   .scenario-desc { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-bottom: 14px; }
+
   .breakdown { border-top: 1px solid var(--border); padding-top: 12px; display: flex; flex-direction: column; gap: 7px; }
   .breakdown-row { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--mono); font-size: 10px; color: var(--muted); }
   .breakdown-row .val { color: var(--muted2); font-size: 11px; }
   .breakdown-row.total { border-top: 1px solid var(--border); padding-top: 7px; margin-top: 2px; }
   .breakdown-row.total .val { color: var(--text); font-weight: 500; }
-  .breakdown-row.announced .val { color: var(--amber); }
-  .breakdown-row.remaining .val { color: var(--green); }
 
-  /* simulator */
   .sim-card { background: var(--bg2); border: 1px solid var(--border2); border-radius: 16px; padding: 22px 20px; margin-bottom: 16px; }
   .sim-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
   .sim-title { font-size: 14px; font-weight: 600; color: var(--text); }
-  .sim-yield-num { font-size: clamp(32px,10vw,46px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--green); transition: color 0.3s; }
+  .sim-yield-num { font-size: clamp(32px,10vw,46px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; transition: color 0.3s; }
   .sim-yield-label { font-family: var(--mono); font-size: 10px; color: var(--muted); text-align: right; margin-top: 2px; }
 
   .slider-block { margin-bottom: 22px; }
   .slider-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
   .slider-name { font-family: var(--mono); font-size: 11px; color: var(--muted2); }
   .slider-readout { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--text); min-width: 60px; text-align: right; }
+
   input[type=range] {
     -webkit-appearance: none; appearance: none;
-    width: 100%; height: 3px;
-    background: var(--bg4); border-radius: 2px; outline: none; cursor: pointer;
+    width: 100%; height: 3px; background: var(--bg4); border-radius: 2px; outline: none; cursor: pointer;
   }
   input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none; appearance: none;
@@ -168,33 +130,36 @@
   input[type=range]:active::-webkit-slider-thumb { transform: scale(1.2); background: var(--green); }
   .tick-row { display: flex; justify-content: space-between; margin-top: 5px; font-family: var(--mono); font-size: 9px; color: var(--muted); }
 
-  /* gauge */
-  .gauge-wrap { margin-top: 18px; margin-bottom: 20px; }
+  input[type=number] {
+    background: var(--bg4); border: 1px solid var(--border2); border-radius: 8px;
+    color: var(--text); font-family: var(--mono); font-size: 16px; font-weight: 500;
+    padding: 10px 14px; width: 100%; outline: none; -moz-appearance: textfield;
+  }
+  input[type=number]:focus { border-color: var(--green); }
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .price-wrap { display: flex; align-items: center; gap: 10px; }
+  .price-prefix { font-family: var(--mono); font-size: 13px; color: var(--muted); white-space: nowrap; }
+
+  .gauge-wrap { margin-top: 4px; margin-bottom: 20px; }
   .gauge-label { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; display: flex; justify-content: space-between; }
   .gauge-track { background: var(--bg4); border-radius: 4px; height: 6px; overflow: hidden; }
   .gauge-fill { height: 100%; border-radius: 4px; transition: width 0.4s ease, background 0.4s ease; }
 
-  /* sim output */
   .sim-output { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
   .sim-metric { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
   .sim-metric-label { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 6px; }
   .sim-metric-val { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--text); }
 
-  /* formula box */
   .formula-box {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-left: 2px solid var(--accent);
-    border-radius: 10px;
-    padding: 16px 18px;
-    margin-top: 24px;
+    background: var(--bg3); border: 1px solid var(--border);
+    border-left: 2px solid var(--accent); border-radius: 10px; padding: 16px 18px; margin-top: 24px;
   }
   .formula-title { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 12px; }
   .formula-line { font-family: var(--mono); font-size: 11px; color: var(--muted2); line-height: 2; }
   .formula-line span { color: var(--text); }
   .formula-divider { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
 
-  /* footer */
   .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 9px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; display: flex; justify-content: space-between; }
 
   @keyframes fadein { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
@@ -207,9 +172,9 @@
 <div class="wrap">
 
   <div class="header">
-    <div class="header-eyebrow">XP Inc · XPBR31 · Limite de distribuição 2026</div>
+    <div class="header-eyebrow">XP Inc · XPBR31 · Capacidade de distribuição 2026</div>
     <div class="header-title">Quanto a XP pode<br><span>devolver</span> em 2026?</div>
-    <div class="header-sub">Base: 1T26 · Guidance Basileia 16–19% · jun/26</div>
+    <div class="header-sub">DVD + buyback · término 2026 com Basileia 16–19% · base 1T26</div>
   </div>
 
   <div class="section-label">Dados base 1T26</div>
@@ -231,39 +196,35 @@
     </div>
     <div class="metric-card">
       <div class="metric-label">Market cap</div>
-      <div class="metric-value">R$54,3bi</div>
-      <div class="metric-sub">~520M ações</div>
+      <div class="metric-value" id="mc-display">R$41,3bi</div>
+      <div class="metric-sub" id="mc-sub">519,9M × R$79,51</div>
     </div>
   </div>
 
-  <div class="section-label">Cenários do guidance (RWA +20% até fim de 2026)</div>
+  <div class="section-label">Cenários do guidance (RWA +20%, lucro R$5,3bi)</div>
   <div class="scenario-grid">
 
     <div class="scenario-card is-19">
       <div class="scenario-badge amber">Topo · 19%</div>
       <div class="scenario-yield amber" id="y19">—</div>
-      <div class="scenario-desc">yield total</div>
+      <div class="scenario-desc">dividend yield total</div>
       <div class="breakdown">
-        <div class="breakdown-row"><span>Capital hoje</span><span class="val">R$25,3bi</span></div>
+        <div class="breakdown-row"><span>PR atual</span><span class="val">R$25,3bi</span></div>
         <div class="breakdown-row"><span>+ Lucro 2026e</span><span class="val">R$5,3bi</span></div>
-        <div class="breakdown-row"><span>− Capital exigido</span><span class="val" id="req19">—</span></div>
-        <div class="breakdown-row total"><span>Total distribuível</span><span class="val" id="tot19">—</span></div>
-        <div class="breakdown-row announced"><span>Já anunciado</span><span class="val">R$1,5bi</span></div>
-        <div class="breakdown-row remaining"><span>Ainda a anunciar</span><span class="val" id="rem19">—</span></div>
+        <div class="breakdown-row"><span>− PR alvo fim 2026</span><span class="val" id="req19">—</span></div>
+        <div class="breakdown-row total"><span>Total DVD + buyback</span><span class="val" id="tot19">—</span></div>
       </div>
     </div>
 
     <div class="scenario-card is-16">
       <div class="scenario-badge green">Piso · 16%</div>
       <div class="scenario-yield green" id="y16">—</div>
-      <div class="scenario-desc">yield total</div>
+      <div class="scenario-desc">dividend yield total</div>
       <div class="breakdown">
-        <div class="breakdown-row"><span>Capital hoje</span><span class="val">R$25,3bi</span></div>
+        <div class="breakdown-row"><span>PR atual</span><span class="val">R$25,3bi</span></div>
         <div class="breakdown-row"><span>+ Lucro 2026e</span><span class="val">R$5,3bi</span></div>
-        <div class="breakdown-row"><span>− Capital exigido</span><span class="val" id="req16">—</span></div>
-        <div class="breakdown-row total"><span>Total distribuível</span><span class="val" id="tot16">—</span></div>
-        <div class="breakdown-row announced"><span>Já anunciado</span><span class="val">R$1,5bi</span></div>
-        <div class="breakdown-row remaining"><span>Ainda a anunciar</span><span class="val" id="rem16">—</span></div>
+        <div class="breakdown-row"><span>− PR alvo fim 2026</span><span class="val" id="req16">—</span></div>
+        <div class="breakdown-row total"><span>Total DVD + buyback</span><span class="val" id="tot16">—</span></div>
       </div>
     </div>
 
@@ -275,11 +236,22 @@
     <div class="sim-header">
       <div>
         <div class="sim-title">Parâmetros customizados</div>
-        <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:4px;">ajuste os três sliders</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:4px;">ajuste os parâmetros</div>
       </div>
       <div>
         <div class="sim-yield-num" id="live-yield">—</div>
-        <div class="sim-yield-label">yield total</div>
+        <div class="sim-yield-label">dividend yield total</div>
+      </div>
+    </div>
+
+    <div class="slider-block">
+      <div class="slider-top">
+        <span class="slider-name">Preço da ação (XPBR31)</span>
+        <span class="slider-readout" id="read-mktcap">R$41,3bi mktcap</span>
+      </div>
+      <div class="price-wrap">
+        <span class="price-prefix">R$</span>
+        <input type="number" id="inp-price" value="79.51" min="1" step="0.01">
       </div>
     </div>
 
@@ -323,35 +295,34 @@
 
     <div class="sim-output">
       <div class="sim-metric">
-        <div class="sim-metric-label">Capital exigido</div>
+        <div class="sim-metric-label">PR alvo fim 2026</div>
         <div class="sim-metric-val" id="sim-req">—</div>
       </div>
       <div class="sim-metric">
-        <div class="sim-metric-label">Total distribuível</div>
+        <div class="sim-metric-label">Total DVD + buyback</div>
         <div class="sim-metric-val" id="sim-tot">—</div>
       </div>
       <div class="sim-metric">
-        <div class="sim-metric-label">Ainda a anunciar</div>
-        <div class="sim-metric-val" id="sim-rem" style="color:var(--green);">—</div>
+        <div class="sim-metric-label">Dividend yield total</div>
+        <div class="sim-metric-val" id="sim-yield" style="color:var(--green);">—</div>
       </div>
     </div>
 
   </div>
 
-  <!-- formula -->
   <div class="formula-box">
     <div class="formula-title">Memória do cálculo</div>
-    <div class="formula-line">Total distribuível = <span>Capital atual + Lucro 2026e − Capital exigido fim 2026</span></div>
-    <div class="formula-line">Capital exigido = <span>Basileia alvo × RWA atual × (1 + crescimento RWA)</span></div>
+    <div class="formula-line">Total DVD + buyback = <span>PR atual + Lucro 2026e − PR alvo fim 2026</span></div>
+    <div class="formula-line">PR alvo fim 2026 = <span>Basileia alvo × RWA atual × (1 + crescimento RWA)</span></div>
     <hr class="formula-divider">
-    <div class="formula-line">Já anunciado: <span>R$500M div (jun/26) + R$1bi buyback = R$1,5bi</span></div>
-    <div class="formula-line">Yield = <span>Total distribuível / Market cap (R$54,3bi)</span></div>
-    <div class="formula-line">Inclui <span>dividendos + recompras</span> — retorno total ao acionista</div>
+    <div class="formula-line">Market cap = <span>519,89M ações × preço inserido</span></div>
+    <div class="formula-line">Dividend yield total = <span>Total DVD + buyback / Market cap</span></div>
+    <div class="formula-line">Premissa: <span>lucro 2026e integralmente disponível para distribuição ou retenção</span></div>
   </div>
 
   <div class="footer">
     <span>XP Capital Dashboard</span>
-    <span>Jun 2026 · 1T26</span>
+    <span>Jun 2026 · Base 1T26</span>
   </div>
 
 </div>
@@ -359,42 +330,45 @@
 <script>
 const CAP_ATUAL = 25.3;
 const RWA_ATUAL = 122.2;
-const MKTCAP   = 54.3;
-const JA_ANUNCIADO = 1.5;
+const SHARES    = 519.89;
+
+let MKTCAP = (SHARES * 79.51) / 1000;
 
 function calc(basAlvo, rwaGrow, lucro) {
-  const rwaFim  = RWA_ATUAL * (1 + rwaGrow / 100);
-  const capReq  = basAlvo / 100 * rwaFim;
-  const total   = CAP_ATUAL + lucro - capReq;
-  const restante = Math.max(total - JA_ANUNCIADO, 0);
-  const yld     = Math.max(total, 0) / MKTCAP * 100;
-  return { capReq, total, restante, yld };
+  const rwaFim = RWA_ATUAL * (1 + rwaGrow / 100);
+  const prAlvo = basAlvo / 100 * rwaFim;
+  const total  = CAP_ATUAL + lucro - prAlvo;
+  const yld    = Math.max(total, 0) / MKTCAP * 100;
+  return { prAlvo, total, yld };
 }
 
 function bi(n)  { return 'R$' + n.toFixed(1) + 'bi'; }
 function pct(n) { return n.toFixed(1) + '%'; }
 
-function setColor(el, val) {
-  el.style.color = val >= 10 ? 'var(--green)' : val >= 5 ? 'var(--amber)' : 'var(--muted2)';
+function yieldColor(val) {
+  return val >= 10 ? 'var(--green)' : val >= 5 ? 'var(--amber)' : 'var(--muted2)';
 }
 
-// static scenario cards (RWA +20%, lucro R$5.3bi)
 function fillScenario(suffix, bas) {
   const r = calc(bas, 20, 5.3);
   document.getElementById('y'   + suffix).textContent = pct(r.yld);
-  document.getElementById('req' + suffix).textContent = bi(r.capReq);
+  document.getElementById('req' + suffix).textContent = bi(r.prAlvo);
   document.getElementById('tot' + suffix).textContent = bi(r.total);
-  document.getElementById('rem' + suffix).textContent = bi(r.restante);
 }
-fillScenario('19', 19);
-fillScenario('16', 16);
 
-// sliders
-const slBas = document.getElementById('sl-bas');
-const slRwa = document.getElementById('sl-rwa');
-const slLuc = document.getElementById('sl-luc');
+const slBas    = document.getElementById('sl-bas');
+const slRwa    = document.getElementById('sl-rwa');
+const slLuc    = document.getElementById('sl-luc');
+const inpPrice = document.getElementById('inp-price');
 
 function update() {
+  const price = parseFloat(inpPrice.value) || 79.51;
+  MKTCAP = (SHARES * price) / 1000;
+
+  document.getElementById('mc-display').textContent  = 'R$' + MKTCAP.toFixed(1) + 'bi';
+  document.getElementById('mc-sub').textContent      = '519,9M × R$' + price.toFixed(2);
+  document.getElementById('read-mktcap').textContent = 'R$' + MKTCAP.toFixed(1) + 'bi mktcap';
+
   const bas = parseFloat(slBas.value);
   const rwa = parseFloat(slRwa.value);
   const luc = parseFloat(slLuc.value);
@@ -412,18 +386,23 @@ function update() {
 
   const liveEl = document.getElementById('live-yield');
   liveEl.textContent = pct(r.yld);
-  setColor(liveEl, r.yld);
+  liveEl.style.color = yieldColor(r.yld);
 
-  document.getElementById('sim-req').textContent = bi(r.capReq);
-  document.getElementById('sim-tot').textContent = bi(r.total);
-  const remEl = document.getElementById('sim-rem');
-  remEl.textContent = bi(r.restante);
-  setColor(remEl, r.restante / MKTCAP * 100);
+  document.getElementById('sim-req').textContent  = bi(r.prAlvo);
+  document.getElementById('sim-tot').textContent  = bi(r.total);
+  const yEl = document.getElementById('sim-yield');
+  yEl.textContent  = pct(r.yld);
+  yEl.style.color  = yieldColor(r.yld);
+
+  fillScenario('19', 19);
+  fillScenario('16', 16);
 }
 
 slBas.addEventListener('input', update);
 slRwa.addEventListener('input', update);
 slLuc.addEventListener('input', update);
+inpPrice.addEventListener('input', update);
+
 update();
 </script>
 </body>
